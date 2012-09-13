@@ -1,1 +1,4 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+<asp:Content runat="server" ContentPlaceHolderID="container">
+    <umbraco:Macro runat="server" Alias="RenderAllPosts"/>
+</asp:Content>

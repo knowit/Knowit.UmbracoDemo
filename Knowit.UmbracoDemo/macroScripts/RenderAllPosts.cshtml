@@ -1,1 +1,14 @@
-﻿
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    dynamic posts = Model.AncestorOrSelf("Frontpage").Posts;                  
+}
+@foreach(var post in posts)
+{
+    <div class="post-@(post.Id) post type-post status-publish format-standard hentry category-uncategorized" id="post-@(post.Id)">
+        <h1><a href="/fing-gist/">@post.heading</a></h1>
+        <p class="author">05.09.12 - <a href="" rel="author">Knut Martin Tornes</a></p>
+        <p>@post.lead</p>
+        <p>@post.body</p>
+    </div>
+}
