@@ -197,6 +197,7 @@
 	</div>
 	<!-- Outer Container end -->
 
+	<!--
 	<script>
 		WebFontConfig = {
 			//google: { families: [ "Lato:100,300", "Pontano+Sans" ] },
@@ -228,12 +229,18 @@
 			}
 		};
 	</script>
+	-->
 	<script src="scripts/libs/jquery-1.7.1.js"></script>
 	<script src="scripts/libs/history.js"></script>
 	<script src="scripts/libs/history.jquery.adapter.js"></script>
 	<script src="scripts/libs/jquery.masonry.js"></script>
 	<script src="scripts/libs/prettify.js"></script>
-	<script src="scripts/libs/webfont.js"></script>
+	<!--<script src="scripts/libs/webfont.js"></script>-->
 	<script src="scripts/App.js"></script>
+	<script>
+		$(function() {
+			App.setup();
+		})
+	</script>	
 </body>
 </html>
