@@ -1,4 +1,16 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
-<asp:Content runat="server" ContentPlaceHolderID="container">
-    <umbraco:Macro runat="server" Alias="RenderAllPosts"/>
+<asp:Content runat="server" ContentPlaceHolderID="bodyTag">
+    <body class="home blog">
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsBeforeLogo">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="0" take="3" />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsAfterLogo">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="3" take="3" />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsAfterSocialMedia">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="6" />
 </asp:Content>

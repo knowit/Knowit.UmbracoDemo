@@ -266,7 +266,7 @@
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
-    <Content Include="macroScripts\RenderAllPosts.cshtml" />
+    <Content Include="macroScripts\RenderPosts.cshtml" />
     <Content Include="macroScripts\RenderTagCloud.cshtml" />
     <Content Include="masterpages\Frontpage.master" />
     <Content Include="masterpages\Master.master" />

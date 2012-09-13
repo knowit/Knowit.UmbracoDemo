@@ -63,8 +63,7 @@
 	
 	var getArticleLoadOptions = function(){
 		return {
-			"url":			currentArticleUrl,
-			"data":			{ _ajax: true },
+			"url":			currentArticleUrl + "/PostData/",
 			"type":			"GET",
 			"dataType":		"html",
 			"beforeSend": 	setRequestHeaders

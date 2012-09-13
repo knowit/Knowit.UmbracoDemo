@@ -1,1 +1,22 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+<asp:Content runat="server" ContentPlaceHolderID="bodyTag">
+    <umbraco:Macro runat="server" language="razor">
+        <body class="single single-post post-@Model.Id single-format-standard">
+    </umbraco:Macro>
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="currentPost">
+    <umbraco:Macro runat="server" Alias="RenderCurrentPost"  />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsBeforeLogo">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="0" take="3" />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsAfterLogo">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="3" take="3" />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="postsAfterSocialMedia">
+    <umbraco:Macro runat="server" Alias="RenderPosts" skip="6" />
+</asp:Content>

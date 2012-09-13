@@ -1,19 +1,16 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
 <asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
     <!doctype html>
-
     <!--[if lt IE 9 ]><html class="no-js ieold" dir="ltr" lang="en-US"><![endif]-->
     <!--[if gt IE 9]><!-->
     <html class="no-js" dir="ltr" lang="en-US">
     <!--<![endif]-->
-
     <head>
         <title>Knowit Labs</title>
-
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="title" content="Knowit Labs">
-        <meta name="description" content="Just another WordPress site">
+        <meta name="description" content="Just another Umbraco site">
         <meta name="author" content="Knowit Reaktor Bergen">
         <meta name="Copyright" content="Copyright Knowit. All Rights Reserved.">
         <meta name="viewport" content="width=768, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -26,25 +23,39 @@
         <link rel="stylesheet" href="/css/style.css">
         <script src="/scripts/libs/modernizr-2.5.3.js"></script>
     </head>
+    <asp:ContentPlaceHolder runat="server" ID="bodyTag">
+        <body class="home blog">
+    </asp:ContentPlaceHolder>
 
-    <body class="home blog">
-        <div id="overlay"></div>
-
-        <!-- Ajax loader -->
+        <!-- Ajax loaderstart -->
+        <div id="overlay"></div>    
         <div id="hider">
             <img src="/img/ajax-loader.gif" />
             <p>Loading...</p>
         </div>
+        <!-- Ajax end -->
+        
+        <!-- Current post start -->
+        <asp:ContentPlaceHolder runat="server" ID="currentPost"></asp:ContentPlaceHolder>            
+        <!-- Current post end -->
 
         <!-- Outer Container start -->
         <div class="outerContainer">
             <!-- Container start -->
             <div class="container">
-                <asp:ContentPlaceHolder runat="server" ID="container"></asp:ContentPlaceHolder>
+                <!-- Posts start -->
+                <asp:ContentPlaceHolder runat="server" ID="postsBeforeLogo"></asp:ContentPlaceHolder>
+                <!-- Posts end -->
 
+                <!-- Logo start -->
                 <div class="post main nop">
                     <img src="/img/Knowitlabs_logo_retina.png" width="160" alt="knowit labs" />
                 </div>
+                <!-- Logo end -->
+
+                <!-- Posts start -->
+                <asp:ContentPlaceHolder runat="server" ID="postsAfterLogo"></asp:ContentPlaceHolder>
+                <!-- Posts end -->
 
                 <!-- Tag cloud start -->
                 <div class="post cloud nop">
@@ -93,10 +104,15 @@
                     <a href="/feed/" class="rss"></a>
                 </div>
                 <!-- Social media links end -->
+                
+                <!-- Posts start -->
+                <asp:ContentPlaceHolder runat="server" ID="postsAfterSocialMedia"></asp:ContentPlaceHolder>
+                <!-- Posts end -->
 
                 <!-- Disqus integration -->
                 <script type="text/javascript">
                     // <![CDATA[
+                    var disqus_developer = 1;
                     var disqus_shortname = 'knowitlabs';
                     (function () {
                         var nodes = document.getElementsByTagName('span');
@@ -123,39 +139,6 @@
         </div>
         <!-- Outer Container end -->
 
-        <!--
-	<script>
-		WebFontConfig = {
-			//google: { families: [ "Lato:100,300", "Pontano+Sans" ] },
-			
-			custom: { 
-				families: [ 
-					'GeorgiaProW01-Light',
-					'GeorgiaProW01-LightItal',
-					'HelveticaNeueLTStd25UltraLt',
-					'helveticaNeueLTStd35Thin',
-					'helveticaNeueLTStd75Bold',
-					'helveticaNeueLTStd76BdIt',
-					'helveticaNeueLTStd56Italic',
-					'helveticaNeueLTStd45Light',
-					'helveticaNeueLTStd65Medium',
-					'helveticaNeueLTStd66MdIt',
-					'helveticaNeueLTStd55Roman'
-				]
-			},
-			stylesheets: [ 
-				"styles/main.css"
-			],
-			active: function(){
-				$(function(){
-					setTimeout(function(){
-						App.setup();
-					}, 1);
-				});
-			}
-		};
-	</script>
-	-->
         <script src="/scripts/libs/jquery-1.7.1.js"></script>
         <script src="/scripts/libs/history.js"></script>
         <script src="/scripts/libs/history.jquery.adapter.js"></script>
