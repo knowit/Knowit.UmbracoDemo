@@ -195,8 +195,6 @@
     <Content Include="bin\x86\sqlcese40.dll" />
     <Content Include="css\empty.txt" />
     <Content Include="default.aspx" />
-    <Content Include="macroScripts\empty.txt" />
-    <Content Include="masterpages\empty.txt" />
     <Content Include="media\empty.txt" />
     <Content Include="scripts\empty.txt" />
     <Content Include="usercontrols\empty.txt" />
@@ -229,6 +227,11 @@
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="macroScripts\RenderAllPosts.cshtml" />
+    <Content Include="macroScripts\RenderTagCloud.cshtml" />
+    <Content Include="masterpages\Frontpage.master" />
+    <Content Include="masterpages\Master.master" />
+    <Content Include="masterpages\Post.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
