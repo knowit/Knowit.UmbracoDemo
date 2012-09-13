@@ -1,0 +1,6 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="ContentPlaceHolderDefault" runat="server">
+
+</asp:Content>
