@@ -107,10 +107,8 @@ UpgradeLog*.XML
 _TeamCity*
 
 #Umbraco
-*/media
 */App_Data/ClientDependency
 */App_Data/ExamineIndexes
 */App_Data/preview
 */App_Data/TEMP
 */App_Data/umbraco.config
-*/packages
