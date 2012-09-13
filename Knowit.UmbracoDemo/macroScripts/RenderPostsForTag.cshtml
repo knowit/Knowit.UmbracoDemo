@@ -1,0 +1,60 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@*
+This script displays blog posts for supplied tag parameter
+Takes two arguments:
+ - take (Number of posts to display)
+ - skip (Index to start at)
+*@
+
+@{
+    var tag = String.Empty;
+    tag = HttpContext.Current.Request.QueryString["tag"];
+
+    int skip = 0; //Default is to start at index 0 in collection
+    int take = 10; //Default is to render 10 posts
+
+    if (!String.IsNullOrEmpty(Parameter.skip))
+    {
+        skip = int.Parse(Parameter.skip);
+    }
+
+    if (!String.IsNullOrEmpty(Parameter.take))
+    {
+        take = int.Parse(Parameter.take);
+    }
+    
+
+    //Fetch Frontpage node (root node)
+    var rootNode = Model.NodeById(-1);
+    var frontPageNode = rootNode.DescendantsOrSelf("Frontpage").First();
+
+    //Fetch children of FrontPage of document type "Post".
+    var posts = frontPageNode.Children.Where("NodeTypeAlias == \"Post\"").Skip(skip).Take(take);
+
+    var currentNode = Model;
+
+    var taggedPosts = new List<DynamicNode>();
+
+    foreach (var post in posts)
+    {
+        //Continue if post has no tags
+        if (!post.HasProperty("tags")) { continue; }
+
+        //Fetch tags property value from post and split on ","
+        string postTags = post.GetPropertyValue("tags");
+        if (postTags.ToLower().Contains(tag))
+        {
+            taggedPosts.Add(post);
+        }
+    }
+}
+
+@foreach (var post in taggedPosts)
+{
+    <div class="post-@(post.Id) post type-post status-publish format-standard hentry category-uncategorized" id="post-@(post.Id)">
+        <h1><a href="@post.NiceUrl">@post.GetPropertyValue("heading")</a></h1>
+        <p class="author">@post.CreateDate.ToString("dd.MM.yy") - <a href="" rel="author">@post.WriterName</a></p>
+        <p class="lead">@post.GetPropertyValue("lead")</p>
+    </div>
+}
