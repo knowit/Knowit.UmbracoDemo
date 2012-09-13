@@ -330,7 +330,6 @@
     <Content Include="fonts\pontanosans-regular-webfont.woff" />
     <Content Include="macroScripts\RenderPostDetail.cshtml" />
     <Content Include="masterpages\PostData.master" />
-    <Content Include="macroScripts\RenderCurrentPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

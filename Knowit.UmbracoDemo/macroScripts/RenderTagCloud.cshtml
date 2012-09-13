@@ -1,1 +1,63 @@
-﻿
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@*
+This script generates a tag cloud based on tags for all posts
+*@
+
+@{
+    //Fetch Frontpage node (root node)
+    var frontPageNode = Model.AncestorOrSelf("Frontpage");
+
+    //Fetch children of FrontPage of document type "Post".
+    var posts = frontPageNode.Children.Where("NodeTypeAlias == \"Post\"");
+
+    var tags = new Dictionary<string, int>();
+    //Fetch tags for all posts
+    foreach (var post in posts)
+    {
+        //Continue if post has no tags
+        if (!post.HasProperty("tags")) { continue; }
+
+        //Fetch tags property value from post and split on ","
+        string postTags = post.GetPropertyValue("tags");
+        var splitTags = postTags.Trim().Split(',');
+
+        //Add each tag to dictionary, and increment count
+        foreach (var tag in splitTags)
+        {
+            if (!tags.ContainsKey(tag)) { tags.Add(tag, 0); }
+            tags[tag] = tags[tag] + 1;
+        }
+    }
+
+    const int baseFontSize = 14;
+    const int largestFontSize = 30;
+    var minCount = tags.Values.Min();
+    var spread = tags.Values.Max() - minCount;
+    if (spread <= 0)
+    {
+        spread = 1;
+    }
+
+    var fontSpread = largestFontSize - baseFontSize;
+
+    if (fontSpread < 0)
+    {
+        fontSpread = 1;
+    }
+
+    var fontStep = fontSpread / spread;
+     
+}
+
+<div class="post cloud nop masonry-brick" style="position: absolute; top: 262px; left: 255px;">
+    @{
+        var tagIndex = 0;
+        int fontSize = baseFontSize;
+    }
+    @foreach (var tag in tags)
+    {
+        fontSize = (baseFontSize + ((tag.Value - minCount) * fontStep));
+        <a href="/tag/?tag=@tag.Key" class="tag-link-@(tagIndex++)" title="@tag.Value topics" style="font-size: @(fontSize)px;">@tag.Key</a>
+    }
+</div>

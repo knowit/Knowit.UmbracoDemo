@@ -58,43 +58,7 @@
                 <!-- Posts end -->
 
                 <!-- Tag cloud start -->
-                <div class="post cloud nop">
-                    <a href='/tag/net/' class='tag-link-6' title='2 topics' style='font-size: 20px;'>.NET</a>
-                    <a href='/tag/net-4-5/' class='tag-link-8' title='1 topic' style='font-size: 14px;'>.NET 4.5</a>
-                    <a href='/tag/application-architecture/' class='tag-link-16' title='2 topics' style='font-size: 20px;'>Application Architecture</a>
-                    <a href='/tag/architecture/' class='tag-link-19' title='1 topic' style='font-size: 14px;'>Architecture</a>
-                    <a href='/tag/backbone/' class='tag-link-12' title='2 topics' style='font-size: 20px;'>Backbone</a>
-                    <a href='/tag/batman/' class='tag-link-11' title='1 topic' style='font-size: 14px;'>Batman</a>
-                    <a href='/tag/buster-js/' class='tag-link-32' title='1 topic' style='font-size: 14px;'>Buster.js</a>
-                    <a href='/tag/c/' class='tag-link-7' title='1 topic' style='font-size: 14px;'>C#</a>
-                    <a href='/tag/companion-application/' class='tag-link-20' title='1 topic' style='font-size: 14px;'>companion application</a>
-                    <a href='/tag/ember/' class='tag-link-13' title='1 topic' style='font-size: 14px;'>Ember</a>
-                    <a href='/tag/git/' class='tag-link-27' title='1 topic' style='font-size: 14px;'>Git</a>
-                    <a href='/tag/github/' class='tag-link-28' title='1 topic' style='font-size: 14px;'>GitHub</a>
-                    <a href='/tag/haml/' class='tag-link-26' title='1 topic' style='font-size: 14px;'>Haml</a>
-                    <a href='/tag/html5/' class='tag-link-17' title='1 topic' style='font-size: 14px;'>HTML5</a>
-                    <a href='/tag/ipad/' class='tag-link-21' title='1 topic' style='font-size: 14px;'>iPad</a>
-                    <a href='/tag/jasmine/' class='tag-link-37' title='1 topic' style='font-size: 14px;'>Jasmine</a>
-                    <a href='/tag/javascript/' class='tag-link-9' title='5 topics' style='font-size: 30px;'>JavaScript</a>
-                    <a href='/tag/jquery/' class='tag-link-15' title='1 topic' style='font-size: 14px;'>jQuery</a>
-                    <a href='/tag/js/' class='tag-link-10' title='4 topics' style='font-size: 27.3333333333px;'>JS</a>
-                    <a href='/tag/model-view-controller/' class='tag-link-5' title='1 topic' style='font-size: 14px;'>Model View Controller</a>
-                    <a href='/tag/mongodb/' class='tag-link-25' title='1 topic' style='font-size: 14px;'>MongoDB</a>
-                    <a href='/tag/mvc/' class='tag-link-4' title='1 topic' style='font-size: 14px;'>MVC</a>
-                    <a href='/tag/mvc4/' class='tag-link-3' title='1 topic' style='font-size: 14px;'>MVC4</a>
-                    <a href='/tag/node/' class='tag-link-35' title='3 topics' style='font-size: 24px;'>Node</a>
-                    <a href='/tag/node-js/' class='tag-link-36' title='1 topic' style='font-size: 14px;'>Node.js</a>
-                    <a href='/tag/polyfills/' class='tag-link-18' title='1 topic' style='font-size: 14px;'>Polyfills</a>
-                    <a href='/tag/ruby/' class='tag-link-23' title='1 topic' style='font-size: 14px;'>Ruby</a>
-                    <a href='/tag/sinatra/' class='tag-link-24' title='1 topic' style='font-size: 14px;'>Sinatra</a>
-                    <a href='/tag/sinon-js/' class='tag-link-31' title='1 topic' style='font-size: 14px;'>Sinon.js</a>
-                    <a href='/tag/source-control/' class='tag-link-30' title='1 topic' style='font-size: 14px;'>Source Control</a>
-                    <a href='/tag/spine/' class='tag-link-14' title='1 topic' style='font-size: 14px;'>Spine</a>
-                    <a href='/tag/tablets/' class='tag-link-22' title='1 topic' style='font-size: 14px;'>Tablets</a>
-                    <a href='/tag/tdd/' class='tag-link-33' title='1 topic' style='font-size: 14px;'>TDD</a>
-                    <a href='/tag/test-driven-development/' class='tag-link-34' title='1 topic' style='font-size: 14px;'>Test Driven Development</a>
-                    <a href='/tag/tfs/' class='tag-link-29' title='1 topic' style='font-size: 14px;'>TFS</a>
-                </div>
+                <umbraco:Macro runat="server" Alias="RenderTagCloud"/>
                 <!-- Tag cloud end -->
 
                 <!-- Social media links start -->
@@ -108,31 +72,6 @@
                 <!-- Posts start -->
                 <asp:ContentPlaceHolder runat="server" ID="postsAfterSocialMedia"></asp:ContentPlaceHolder>
                 <!-- Posts end -->
-
-                <!-- Disqus integration -->
-                <script type="text/javascript">
-                    // <![CDATA[
-                    var disqus_developer = 1;
-                    var disqus_shortname = 'knowitlabs';
-                    (function () {
-                        var nodes = document.getElementsByTagName('span');
-                        for (var i = 0, url; i < nodes.length; i++) {
-                            if (nodes[i].className.indexOf('dsq-postid') != -1) {
-                                nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('rel'));
-                                url = nodes[i].parentNode.href.split('#', 1);
-                                if (url.length == 1) { url = url[0]; }
-                                else { url = url[1]; }
-                                nodes[i].parentNode.href = url + '#disqus_thread';
-                            }
-                        }
-                        var s = document.createElement('script'); s.async = true;
-                        s.type = 'text/javascript';
-                        s.src = 'http' + '://' + 'disqus.com/forums/' + disqus_shortname + '/count.js';
-                        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-                    }());
-                    //]]>
-                </script>
-
             </div>
             <!-- Container end -->
 
@@ -144,7 +83,6 @@
         <script src="/scripts/libs/history.jquery.adapter.js"></script>
         <script src="/scripts/libs/jquery.masonry.js"></script>
         <script src="/scripts/libs/prettify.js"></script>
-        <!--<script src="scripts/libs/webfont.js"></script>-->
         <script src="/scripts/App.js"></script>
         <script>
             $(function () {
