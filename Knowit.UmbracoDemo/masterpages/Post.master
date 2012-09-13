@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="currentPost">
-    <umbraco:Macro runat="server" Alias="RenderCurrentPost"  />
+    <umbraco:Macro runat="server" Alias="RenderPostDetail"  />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="postsBeforeLogo">
