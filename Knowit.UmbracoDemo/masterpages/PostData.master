@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
-    <umbraco:Macro runat="server" Alias="RenderPostDetail" ajax="true" />
+    <umbraco:Macro runat="server" Alias="RenderPostDetail" ajax="true" />   
 </asp:Content>

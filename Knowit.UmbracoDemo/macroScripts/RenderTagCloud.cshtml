@@ -6,7 +6,8 @@ This script generates a tag cloud based on tags for all posts
 
 @{
     //Fetch Frontpage node (root node)
-    var frontPageNode = Model.AncestorOrSelf("Frontpage");
+    var rootNode = Model.NodeById(-1);
+    var frontPageNode = rootNode.DescendantsOrSelf("Frontpage").First();
 
     //Fetch children of FrontPage of document type "Post".
     var posts = frontPageNode.Children.Where("NodeTypeAlias == \"Post\"");
@@ -58,6 +59,6 @@ This script generates a tag cloud based on tags for all posts
     @foreach (var tag in tags)
     {
         fontSize = (baseFontSize + ((tag.Value - minCount) * fontStep));
-        <a href="/tag/?tag=@tag.Key" class="tag-link-@(tagIndex++)" title="@tag.Value topics" style="font-size: @(fontSize)px;">@tag.Key</a>
+        <a href="/displaybytag/?tag=@tag.Key" class="tag-link-@(tagIndex++)" title="@tag.Value topics" style="font-size: @(fontSize)px;">@tag.Key</a>
     }
 </div>
