@@ -1,24 +1,25 @@
 @font-face {
-    font-family: 'GeorgiaProW01-Light';
-    src: url('../fonts/GeorgiaProW01-Light.eot');
-    src: url('../fonts/GeorgiaProW01-Light.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/GeorgiaProW01-Light.woff') format('woff'),
-         url('../fonts/GeorgiaProW01-Light.ttf') format('truetype'),
-         url('../fonts/GeorgiaProW01-Light.svg#GeorgiaProW01-Light') format('svg');
+    font-family: 'Georgia';
+    src: url('../fonts/Georgia.eot');
+    src: url('../fonts/Georgia.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Georgia.woff') format('woff'),
+         url('../fonts/Georgia.ttf') format('truetype'),
+         url('../fonts/Georgia.ttf#Georgia') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'GeorgiaProW01-LightItal';
-    src: url('../fonts/GeorgiaProW01-LightItal.eot');
-    src: url('../fonts/GeorgiaProW01-LightItal.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/GeorgiaProW01-LightItal.woff') format('woff'),
-         url('../fonts/GeorgiaProW01-LightItal.ttf') format('truetype'),
-         url('../fonts/GeorgiaProW01-LightItal.svg#GeorgiaProW01-LightItal') format('svg');
+    font-family: 'GeorgiaItal';
+    src: url('../fonts/GeorgiaItal.eot');
+    src: url('../fonts/GeorgiaItal.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/GeorgiaItal.woff') format('woff'),
+         url('../fonts/GeorgiaItal.ttf') format('truetype'),
+         url('../fonts/GeorgiaItal.svg#GeorgiaItal') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 
 @font-face {
     font-family: 'HelveticaNeueLTStd25UltraLt';
@@ -67,7 +68,6 @@
     font-style: normal;
 
 }
-
 
 @font-face {
     font-family: 'helveticaNeueLTStd56Italic';
@@ -126,5 +126,4 @@
          url('../fonts/helveticaneueltstd-roman-webfont.svg#HelveticaNeueLTStd55Roman') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }

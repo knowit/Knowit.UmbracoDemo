@@ -1,0 +1,3 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><umbraco:Macro Source="" BaseUrl="" DocumentTypeAlias="Post" KeywordProperty="tags" BodyTextProperty="body" Alias="[EyeCatch]RSSFeed" runat="server"></umbraco:Macro>
+</asp:Content>
